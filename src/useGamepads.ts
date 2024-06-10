@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { haveGamepadEvents } from './haveGamepadEvents';
 import { GamepadRef } from './types';
 
 const useGamepads = (cb?: (data: GamepadRef) => void) => {
@@ -57,9 +56,7 @@ const useGamepads = (cb?: (data: GamepadRef) => void) => {
 
   // Update gamepad state on each "tick"
   const update = () => {
-    if (!haveGamepadEvents) {
-      scanGamepads();
-    }
+    scanGamepads();
     request.current = requestAnimationFrame(update);
   };
 
